@@ -1,0 +1,38 @@
+--extra-index-url https://download.pytorch.org/whl/cu129
+
+torch
+torchvision
+
+# Other dependencies (no version pins)
+torchdata
+torchinfo
+torchmetrics
+torchsummary
+torchtune
+pytorch-ignite
+pytorch-lightning
+albumentations
+imageio
+lpips
+matplotlib
+mmcv
+mmengine
+mpmath
+multiprocess
+numpy
+opencv-python
+openexr
+pillow
+scikit-image
+scikit-learn
+scikit-learn-intelex
+scikit-multilearn
+scikit-optimize
+scikit-plot
+scikit-surprise
+scipy
+tqdm
+pyyaml
+
+# tiny-cuda-nn PyTorch bindings
+# git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
