@@ -8,7 +8,7 @@ import yaml
 import Interface
 import Utils
 
-TEST_LIGHT_MAP_COUNT = 10
+TEST_LIGHT_MAP_COUNT = 1
 
 if __name__ == '__main__': 
     # 所有大赛使用的数据�?

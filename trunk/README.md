@@ -215,7 +215,7 @@ class ExampleModel(nn.Module):
 对于原始数据而言，该模型的压缩率大约是：1.28MB / 18MB = 0.071 
 
 ### 拉取代码说明
-大家在拉取工程和数据代码的时候，建议按照如下几个目录来依次拉取：
+大家在拉取工程和数据代码的时候，建议f按照如下几个目录来依次拉取：
 1. https://svn.tencent.com/HPRC/HPRC_Test1/trunk
 2. https://svn.tencent.com/HPRC/HPRC_Test1/branches/test
 3. https://svn.tencent.com/HPRC/HPRC_Test1/branches/YourTeam
