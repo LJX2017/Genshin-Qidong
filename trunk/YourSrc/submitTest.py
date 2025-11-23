@@ -1,20 +1,20 @@
-import json
+﻿import json
 import os
 import time
 import numpy as np
 import torch
 import yaml
 
-import PCA_VQ_Interface as Interface
+import test_interface as Interface
 import Utils
 
-PARAMETERS = './pca_vq_parameters'
+PARAMETERS = './test_parameters'
 
 if __name__ == '__main__':
     # ================= CONFIGURATION =================
     # Set this to an integer to test only the top K lightmaps (e.g., 5).
     # Set to None or 0 to test ALL lightmaps.
-    TEST_K = 10
+    TEST_K = 5
     # =================================================
 
     # 所有大赛使用的数据集
