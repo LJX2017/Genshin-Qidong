@@ -1,3 +1,5 @@
+# train per tile PCA
+# test_train.py
 import argparse
 import json
 import os
@@ -33,7 +35,7 @@ def parse_args():
         help="Component counts to evaluate for reporting (includes --components if not listed)",
     )
     parser.add_argument("--plot", action="store_true", help="Plot random pixel curve for sanity check")
-    parser.add_argument("--erosion_iterations", type=int, default=1, help="Mask erosion iterations for clustering")
+    parser.add_argument("--erosion_iterations", type=int, default=2, help="Mask erosion iterations for clustering")
     parser.add_argument("--kernel_size", type=int, default=3, help="Kernel size used during erosion")
     return parser.parse_args()
 
