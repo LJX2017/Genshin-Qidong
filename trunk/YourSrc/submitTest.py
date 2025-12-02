@@ -5,10 +5,10 @@ import numpy as np
 import torch
 import yaml
 
-import test_interface as Interface
+import pca_interface as Interface
 import Utils
 
-PARAMETERS = './test_parameters'
+PARAMETERS = './Parameters'
 
 if __name__ == '__main__':
     # ================= CONFIGURATION =================
