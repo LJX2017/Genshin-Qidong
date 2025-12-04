@@ -9,17 +9,17 @@ class ExampleModel(nn.Module):
         config = {
             "encoding": {
                 "otype": "HashGrid",
-                "n_levels": 16,
-                "n_features_per_level": 2,
-                "log2_hashmap_size": 19,  # BASELINE HIGH QUALITY (10MB size)
-                "base_resolution": 16,
-                "per_level_scale": 1.5
+                "n_levels": 26,
+                "n_features_per_level": 4,
+                "log2_hashmap_size": 17,  # BASELINE HIGH QUALITY (10MB size)
+                "base_resolution": 32,
+                "per_level_scale": 1.38
             },
             "network": {
                 "otype": "FullyFusedMLP",
                 "activation": "ReLU",
                 "output_activation": "None",
-                "n_neurons": 64,
+                "n_neurons": 128,
                 "n_hidden_layers": 2
             }
         }

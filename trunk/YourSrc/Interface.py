@@ -7,7 +7,7 @@ from ExampleModel import ExampleModel
 class BasicInterface:
     def __init__(self, lightmap_config, device):
         self.device = device
-        self.model = ExampleModel(input_dim=3, output_dim=3, hidden_dim=64)
+        self.model = ExampleModel(input_dim=3, output_dim=3, hidden_dim=128)
 
         path = f"./Parameters/model_{lightmap_config['level']}_{lightmap_config['id']}_params.bin"
 
@@ -24,17 +24,34 @@ class BasicInterface:
         self.model.eval()
         self.resolution = lightmap_config['resolution']
 
-    def reconstruct(self, current_time):
+    def reconstruct(self, current_time, batch_size=131072):
+        """
+        使用批次推理，避免一次性处理所有点导致的内存瓶颈
+        batch_size: 批次大小，可以调整以平衡速度和内存
+        """
         H, W = self.resolution['height'], self.resolution['width']
-        ys, xs = torch.meshgrid(torch.arange(H, device=self.device), torch.arange(W, device=self.device), indexing='ij')
-
+        total_pixels = H * W
+        
+        ys, xs = torch.meshgrid(
+            torch.arange(H, device=self.device), 
+            torch.arange(W, device=self.device), 
+            indexing='ij'
+        )
+        
         coords = torch.stack([
             ys.ravel() / (H - 1),
             xs.ravel() / (W - 1),
             torch.full((H * W,), float(current_time), device=self.device) / 24.0
         ], dim=-1).float().contiguous()
-
-        self.result = torch.clamp(torch.expm1(self.model(coords)), min=0.0)
+        
+        # 批次推理
+        result_list = []
+        for i in range(0, total_pixels, batch_size):
+            batch_coords = coords[i:i+batch_size]
+            batch_result = torch.clamp(torch.expm1(self.model(batch_coords)), min=0.0)
+            result_list.append(batch_result)
+        
+        self.result = torch.cat(result_list, dim=0)
 
     def get_result(self):
         return self.result.reshape(self.resolution['height'], self.resolution['width'], 3).permute(2, 0, 1).unsqueeze(0)

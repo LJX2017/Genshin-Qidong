@@ -54,6 +54,7 @@ pip install git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/to
    python Test.py          # 测试接口
    ```
 
+   - train/test .py 中`TEST_LIGHT_MAP_COUNT`需要保持一致
    - 结果保存在`scores.json`里
 
 2. 研究示例实现

@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     for data_set in data_set_list:
         # 读取数据集下的配置文�?
-        dataset_path = f'../../../Data/{data_set}'
+        dataset_path = f'/mnt/c/HPRC_Test1/Data/{data_set}'
         config_file = 'config.json'
         with open(os.path.join(dataset_path, config_file), 'r', encoding='utf-8') as f:
             data = json.load(f)

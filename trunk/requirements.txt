@@ -35,4 +35,4 @@ tqdm
 pyyaml
 
 # tiny-cuda-nn PyTorch bindings
-# git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+#git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
